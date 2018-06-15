@@ -45,13 +45,13 @@ int anRain::Draw() {
                 Set( r_i, GetRowTop(), rgbwGetByAngle( angle ) );    // draw new random pixel on top row
             }
 
-            framesDrawn++;
-
             if ( ctrColorFade.Done() ) {
                 if ( ( angle += 2.0f ) > 360.0f ) { 
                     angle -= 360.0f;                    
                 }
             }
+            
+            ++framesDrawn;
         }
     }
 

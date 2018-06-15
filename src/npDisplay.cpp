@@ -18,10 +18,11 @@ npDisplay::npDisplay( void ) :
 npDisplay::npDisplay( colorMode_t colorMode ) :
     colorMode( colorMode ),
     globalBrightness ( 255 ),
-    rowTop( 0 ),
+    maxLED( FR_LED_COUNT ),
+    rowTop( FR_LED_COUNT - 1 ),
     rowBottom( 0 ),
     colLeft( 0 ),
-    colRight( 0 ) {
+    colRight( MAX_THETA_DIV - 1 ) {
     switch ( colorMode ) {
         case ( RGB ):
             bytesPerPixel = 3;
@@ -36,88 +37,16 @@ npDisplay::npDisplay( colorMode_t colorMode ) :
     }
     
     /* ADDED STRICTLY FOR DOTSTAR STUFF */
-    rowTop = FR_LED_COUNT - 1;
-    rowBottom = 0;
-    colLeft = 0;
-    colRight = MAX_THETA_DIV - 1;    
-    maxLED = FR_LED_COUNT;
+    // rowTop = FR_LED_COUNT - 1;
+    // rowBottom = 0;
+    // colLeft = 0;
+    // colRight = MAX_THETA_DIV - 1;    
+    // maxLED = FR_LED_COUNT;
     
 }
 
 npDisplay::~npDisplay( void ) {
    // delete[] frameBuffer;
-}
-
-/*
-// Add a new Neopixel device to the container
-int npDisplay::AddNeopixel( uint16_t numLEDs, volatile uint32_t* portSET, volatile uint32_t* portCLR, volatile uint32_t* portTRIS, uint16_t pin ) {
-    neopixels.push_back( Neopixel( numLEDs, portSET, portCLR, portTRIS, pin ) );
-    // update the number of connected Neopixel strips
-    numNeopixels = neopixels.size();
-    // set port TRIS mode to 0 for output on the specified pin
-    *portTRIS &= ~( pin );
-
-     if ( numLEDs > maxLED ) {
-        maxLED = numLEDs;
-    }
-
-    // update total frame bytes
-    switch ( colorMode ) {
-        case ( RGB ):
-            frameBytes += maxLED * 3;
-            break;
-
-        case ( RGBW ):
-            frameBytes += maxLED * 4;
-            break;
-
-        default:
-            break;
-    }
-
-    refreshPulses = maxLED * bytesPerPixel * 8;
-    rowTop = maxLED - 1;
-    rowBottom = 0;
-    colLeft = 0;
-    colRight = numNeopixels - 1;
-    // colRight = MAX_THETA_DIV; // columns are 'virtual' in this case
-    return ( 0 );
-}
-*/
-
-int npDisplay::DeleteNeopixel( uint8_t pos ) {
-    /*
-    if ( neopixels.empty() ) {  // nothing yet in the container
-        return ( 1 );
-    }
-    else {
-        neopixels.erase( neopixels.begin() + pos );
-        // update the number of connected Neopixel strips
-        numNeopixels = neopixels.size();
-
-        // update total frame bytes
-        switch ( colorMode ) {
-            case ( RGB ):
-                frameBytes -= maxLED * 3;
-                break;
-
-            case ( RGBW ):
-                frameBytes -= maxLED * 4;
-                break;
-
-            default:
-                break;
-        }
-
-        refreshPulses = maxLED * bytesPerPixel * 8;
-        // TODO - adjust below according to wiring orientation (future)
-        rowTop = maxLED - 1;
-        rowBottom = 0;
-        colLeft = 0;
-        colRight = numNeopixels - 1;
-        return ( 0 );
-    }
-    */
 }
 
 int npDisplay::GetColorArrayIndex( uint16_t x, uint16_t y ) {

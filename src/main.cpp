@@ -75,7 +75,7 @@ int main() {
     
     	    
     npAnimation* pAnim;  
-    int currAnim = ID_AN_COMETS;        
+    int currAnim = ID_AN_RINGS;        
                     
     while ( 1 ) { 
         if ( currAnim == ID_AN_NULL ) {
@@ -86,7 +86,7 @@ int main() {
         }
         
         switch ( currAnim ) {  
-            
+                       
             case ( ID_AN_TEST ):
                 pAnim = new anTest( &display, MODE_REPEAT );
                 
@@ -100,8 +100,8 @@ int main() {
                 delete pAnim;
                 break;     
                 
-            case ( ID_AN_COMETS ):
-                pAnim = new anComets( &display, MODE_REPEAT );
+            case ( ID_AN_RAIN ):
+                pAnim = new anRain( &display, MODE_NULL, 1000 );
                 
                 if ( pAnim->Draw() == MODE_PREV ) {
                     currAnim--;
@@ -113,8 +113,21 @@ int main() {
                 delete pAnim;
                 break;    
                 
-            case ( ID_AN_RAIN ):
-                pAnim = new anRain( &display, MODE_REPEAT );
+            case ( ID_AN_COMETS ):
+                pAnim = new anComets( &display, MODE_NULL, 1000 );
+                
+                if ( pAnim->Draw() == MODE_PREV ) {
+                    currAnim--;
+                } 
+                else if ( pAnim->Draw() == MODE_NEXT  ) {
+                    currAnim++;
+                }
+                
+                delete pAnim;
+                break;                               
+                
+            case ( ID_AN_RINGS ):
+                pAnim = new anRings( &display, MODE_REPEAT, 4400 );
                 
                 if ( pAnim->Draw() == MODE_PREV ) {
                     currAnim--;

@@ -15,6 +15,21 @@ int anTest::Draw() {
     
     counter ctrTest( 1000, ON );
     
+/* TEXT GENERATION
+ * 
+    X
+  X   X
+X       X
+X       X
+X       X
+XXXXXXXXX
+X       X	
+X       X
+X       X
+X       X
+
+*/
+    
     while ( ( framesDrawn < frames ) || modeFlags.test( MODE_REPEAT ) ) {     
         // For testing T4 interrupt timings
         if ( ctrTest.Done() ) {
@@ -32,12 +47,13 @@ int anTest::Draw() {
                 }
             }
         }
-        */
+        
         for ( int j = 0; j < FR_LED_COUNT; j++ ) {
             if ( j % 2 == 0 ) {
                 Set ( 0, j, rgbwGetByAngle( j * 5 ) );
             }
         }
+        */
 
     } // end main loop         
     

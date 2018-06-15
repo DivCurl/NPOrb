@@ -32,7 +32,7 @@ int anComets::Draw() {
             FadeOut();
         }
 
-        if ( ctr.Done() ) {        
+        if ( ctr.Done() ) {
             ctr.Reset();
 
             for ( int j = 0; j < NUM_COMETS; j++ ) {
@@ -57,7 +57,7 @@ int anComets::Draw() {
                 }
             }
 
-            framesDrawn++;
+            ++framesDrawn;
         }   
     }      
     

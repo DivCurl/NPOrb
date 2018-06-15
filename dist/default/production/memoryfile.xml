@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="dist/default/production/NPOrbPOV.production.elf">                 
+  <executable name="dist/default/production/NPOrb.production.elf">                 
     <memory name="program">                 
       <units>bytes</units>                 
       <length>132240</length>                 
-      <used>39552</used>                     
-      <free>92688</free>                     
+      <used>40176</used>                     
+      <free>92064</free>                     
     </memory>                              
     <memory name="data">              
       <units>bytes</units>                 
       <length>32768</length>                 
-      <used>19236</used>                     
-      <free>13532</free>                     
+      <used>19244</used>                     
+      <free>13524</free>                     
     </memory>                              
   </executable>                            
 </project>                                 

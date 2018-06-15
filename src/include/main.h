@@ -21,6 +21,7 @@
 #include "anRain.h"
 #include "anRandomFill.h"
 #include "anRings.h"
+#include "anText.h"
 
 // All code is tuned to run on a PIC32 with 80 MHz core clock. 
 // Do not change nor attempt to use with slower PIC32 MCUs!

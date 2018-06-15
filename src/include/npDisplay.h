@@ -2,7 +2,7 @@
 #define	NPDISPLAY_H 
 
 #include <vector>
-#include "Neopixel.h"
+// #include "Neopixel.h"
 #include "types.h"
 #include "rgbColor.h"
 
@@ -63,9 +63,6 @@ public:
     npDisplay( int num );
     npDisplay( colorMode_t colorMode );
     ~npDisplay();
-    int AddNeopixel( uint16_t numLEDs, volatile uint32_t* portSET, volatile uint32_t* portCLR, volatile uint32_t* portTRIS, uint16_t pinLED );  // adds LED object...strip, ring, whatever
-    int AddNeopixel( Neopixel& np ); 
-    int DeleteNeopixel( uint8_t pos );
     int GetColorArrayIndex( uint16_t x, uint16_t y );   
     void Refresh( int mode = FB_BLEND );
     void GetRefreshLUT( void );
@@ -85,7 +82,7 @@ public:
     uint32_t* GetFBPointer();    
 
 protected:  
-    std::vector<Neopixel> neopixels;    
+    // std::vector<Neopixel> neopixels;    
     uint32_t frameBuffer[ FB_SIZE ] = {};
     uint32_t frameBufferAlt[ 1 ] = {};
     // int t1LUT[ 1088 ] = {}; 
