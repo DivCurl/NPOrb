@@ -6,21 +6,6 @@
 #include "types.h"
 #include "rgbColor.h"
 
-// #define DRAW_HALF_ARC 
-
-// delays for Neopixel refresh
-#ifdef __OPTIMIZE__
-    // #define delay_t1(); { asm volatile( "nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n" ); }
-    // #define delay_t2(); { asm volatile( "nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n" ); }
-    #define delay_t1(); { asm volatile( "nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n" ); }
-    // #define delay_2(); { asm volatile( "nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n" ); }
-    #define delay_t2(); { asm volatile( "nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n" ); }
-#else
-    #define delay_t1(); { asm volatile( "nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n" ); }    
-    #define delay_t2(); { asm volatile( "nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n nop\n" ); }
-#endif
-
-// const int FR_LED_COUNT          = 44;
 const int FR_LED_COUNT          = 40;
 const int FR_HEADER_DWORD       = 1;    // always 0x0000
 const int FR_FOOTER_DWORD       = 1;    // always 0xFFFF
@@ -85,13 +70,12 @@ protected:
     // std::vector<Neopixel> neopixels;    
     uint32_t frameBuffer[ FB_SIZE ] = {};
     uint32_t frameBufferAlt[ 1 ] = {};
-    // int t1LUT[ 1088 ] = {}; 
     uint8_t maxLED;                         // maximum connected LED count per Neopixel strand
     uint8_t bytesPerPixel;
     uint16_t globalBrightness;
-    uint8_t numNeopixels;
-    uint16_t frameBytes;   
-    uint16_t refreshPulses;
+    // uint8_t numNeopixels;
+    // uint16_t frameBytes;   
+    // uint16_t refreshPulses;
     uint16_t rowBottom;
     uint16_t rowTop;
     uint16_t colLeft;

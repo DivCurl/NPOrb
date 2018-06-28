@@ -88,6 +88,7 @@ protected:
     // float fadeRate;
     float dbGain = 25.f;    // good starting point
     int id;    // return code from Draw()
+    int cycle;
     int ret;
     bool skip, firstScan, useGlobalColor = 0;
     scale_t customScale;

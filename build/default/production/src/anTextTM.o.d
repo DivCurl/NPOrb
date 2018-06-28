@@ -1,6 +1,6 @@
-build/default/production/src/anTest.o:  \
-src/anTest.cpp  \
- src/include/anTest.h  \
+build/default/production/src/anTextTM.o:  \
+src/anTextTM.cpp  \
+ src/include/anTextTM.h  \
 src/include/npAnimation.h  \
 src/include/npDisplay.h  \
  src/include/types.h  \
@@ -10,7 +10,4 @@ src/include/pixel.h  \
 src/include/counter.h  \
 src/include/io.h  \
  src/include/ascii.h  \
-src/include/bitmap.h  \
-src/include/matrix.h  \
- src/include/vector.h  \
-src/include/types.h 
+src/include/bitmap.h 

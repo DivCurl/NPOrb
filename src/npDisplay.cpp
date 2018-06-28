@@ -67,6 +67,7 @@ uint8_t npDisplay::GetMaxLED() {
     return ( maxLED );
 }
 
+/*
 uint8_t npDisplay::GetNumNeopixels() {
     return ( numNeopixels );
 }
@@ -74,6 +75,7 @@ uint8_t npDisplay::GetNumNeopixels() {
 uint8_t npDisplay::GetBytesPerPixel() {
     return ( bytesPerPixel );
 }
+*/
 
 uint8_t npDisplay::GetBrightness() {
     return ( globalBrightness );

@@ -155,10 +155,11 @@ enum {
 enum { 
     ID_AN_TEST = -1, 
     ID_AN_NULL,     
+    ID_AN_TEXT_TM,
     ID_AN_COMETS,
     ID_AN_RAIN,
     ID_AN_RANDOM_FILL,
-    ID_AN_RINGS,
+    ID_AN_RINGS,    
     ID_AN_MAX 
 };
 

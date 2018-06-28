@@ -16,12 +16,14 @@
 #include "io.h"
 #include "npDisplay.h"
 // #include "fft.h"
+#include "ascii.h"
+#include "bitmap.h"
 #include "anTest.h"
 #include "anComets.h"
 #include "anRain.h"
 #include "anRandomFill.h"
 #include "anRings.h"
-#include "anText.h"
+#include "anTextTM.h"
 
 // All code is tuned to run on a PIC32 with 80 MHz core clock. 
 // Do not change nor attempt to use with slower PIC32 MCUs!

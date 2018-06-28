@@ -75,7 +75,7 @@ int main() {
     
     	    
     npAnimation* pAnim;  
-    int currAnim = ID_AN_RINGS;        
+    int currAnim = ID_AN_TEXT_TM;        
                     
     while ( 1 ) { 
         if ( currAnim == ID_AN_NULL ) {
@@ -93,20 +93,33 @@ int main() {
                 if ( pAnim->Draw() == MODE_PREV ) {
                     currAnim--;
                 } 
-                else if ( pAnim->Draw() == MODE_NEXT ) {
+                else {
                     currAnim++;
                 }
                 
                 delete pAnim;
                 break;     
                 
-            case ( ID_AN_RAIN ):
-                pAnim = new anRain( &display, MODE_NULL, 1000 );
+            case ( ID_AN_TEXT_TM ):
+                pAnim = new anTextTM( &display, MODE_NULL, 750 );
                 
                 if ( pAnim->Draw() == MODE_PREV ) {
                     currAnim--;
                 } 
-                else if ( pAnim->Draw() == MODE_NEXT ) {
+                else  {
+                    currAnim++;
+                }
+                
+                delete pAnim;
+                break;  
+                
+            case ( ID_AN_RAIN ):
+                pAnim = new anRain( &display, MODE_NULL, 800 );
+                
+                if ( pAnim->Draw() == MODE_PREV ) {
+                    currAnim--;
+                } 
+                else  {
                     currAnim++;
                 }
                 
@@ -114,30 +127,44 @@ int main() {
                 break;    
                 
             case ( ID_AN_COMETS ):
-                pAnim = new anComets( &display, MODE_NULL, 1000 );
+                pAnim = new anComets( &display, MODE_NULL, 500 );
                 
                 if ( pAnim->Draw() == MODE_PREV ) {
                     currAnim--;
                 } 
-                else if ( pAnim->Draw() == MODE_NEXT  ) {
+                else {
                     currAnim++;
                 }
                 
                 delete pAnim;
-                break;                               
+                break;      
                 
-            case ( ID_AN_RINGS ):
-                pAnim = new anRings( &display, MODE_REPEAT, 4400 );
+            case ( ID_AN_RANDOM_FILL ):
+                pAnim = new anRandomFill( &display, MODE_REPEAT );
                 
                 if ( pAnim->Draw() == MODE_PREV ) {
                     currAnim--;
                 } 
-                else if ( pAnim->Draw() == MODE_NEXT ) {
+                else  {
+                    currAnim++;
+                }
+                
+                delete pAnim;
+                break; 
+                
+            case ( ID_AN_RINGS ):
+                pAnim = new anRings( &display, MODE_NULL );
+                
+                if ( pAnim->Draw() == MODE_PREV ) {
+                    currAnim--;
+                } 
+                else  {
                     currAnim++;
                 }
                 
                 delete pAnim;
                 break;    
+                
             
             default : 
                 currAnim++;

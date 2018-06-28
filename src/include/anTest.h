@@ -3,6 +3,8 @@
 
 #include "npAnimation.h"
 #include "types.h"
+#include "ascii.h"
+#include "bitmap.h"
 
 class anTest : public npAnimation {
 public:

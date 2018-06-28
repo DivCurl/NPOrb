@@ -100,16 +100,23 @@ void sprite::Translate( coord2d_t transCoord ) {
     newOrigin.x = transCoord.x - it->coord.x;
     newOrigin.y = transCoord.y - it->coord.y;
     
+    
     for ( ; it != pixels.end(); it++ ) {
-        it->coord += newOrigin;
-        
+        it->coord += newOrigin;              
     }
 }
 
 void sprite::Shift( int x, int y ) {
     for ( vector<pixel>::iterator it = pixels.begin(); it != pixels.end(); ++it ) {
         it->coord.x += x;
-        it->coord.y += y;        
+        it->coord.y += y;   
+        
+        if ( it->coord.x >= MAX_THETA_DIV ) {
+            it->coord.x = it->coord.x - MAX_THETA_DIV;
+        }
+        if ( it->coord.x < 0 ) {
+            it->coord.x = it->coord.x + MAX_THETA_DIV;
+        }  
     }
 }
 

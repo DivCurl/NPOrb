@@ -27,9 +27,9 @@ int anRings::Draw() {
             if ( ++x >= MAX_THETA_DIV ) { 
                 x = 0;
                 if (++y > GetRowTop() ) {
-                    // whole orb full
-                    // break while loop and terminate animation
-                    break; 
+                    // whole orb full - increment cycle count
+                    ++cycle;
+                    
                 }
             }
             
@@ -39,8 +39,10 @@ int anRings::Draw() {
                 }
             }
             
+            if ( cycle > 5 ) {
+                break;
+            }
             
-            ++framesDrawn;
         }
     }
 

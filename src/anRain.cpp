@@ -18,20 +18,6 @@ int anRain::Draw() {
     // Main animation loop
     while ( ( framesDrawn < frames ) || modeFlags.test( MODE_REPEAT ) ) {
 
-        /*
-        if ( ctrTest.Done() ) {
-            ctrTest.Reset();
-            PORTBbits.RB7 ^= 1;
-        }
-        */
-
-        /*
-        if ( fadeCtr.Done() ) {
-            fadeCtr.Reset();
-            // FadeOut();
-        }
-        */ 
-
         if ( ctr.Done() ) {
             ctr.Reset();
             ShiftDown();    // shift down to simulate falling drops

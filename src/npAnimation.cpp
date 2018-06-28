@@ -197,11 +197,13 @@ void npAnimation::Clr( void ) {
 }
 
 // Fills entire row with specified color
+/*
 void npAnimation::SetRow( uint16_t row, rgbw_t color, uint16_t brt ) {
     for ( int i = 0; i <  pDisplay->numNeopixels; i++ ) {
         Set( i, row, color, brt );
     }
 }
+*/ 
 
 void npAnimation::SetRow( uint16_t row, uint16_t xMin, uint16_t xMax, rgbw_t color, uint16_t brt ) {
     if ( xMin < xMax ) {
@@ -216,6 +218,7 @@ void npAnimation::SetRow( uint16_t row, uint16_t xMin, uint16_t xMax, rgbw_t col
     }       
 }
 
+/*
 void npAnimation::SetRowFade( uint16_t row, float angleStart, float angleStop ) {
     float angleDelta = fabs( angleStop - angleStart ) / pDisplay->numNeopixels;
     
@@ -223,6 +226,7 @@ void npAnimation::SetRowFade( uint16_t row, float angleStart, float angleStop ) 
         Set( i, row, rgbwGetByAngle( angleStart + ( i * angleDelta ), 0 ) );
     }
 }
+ */
 
 // Fills entire column with specified color
 void npAnimation::SetCol( uint16_t col, rgbw_t color, uint16_t brt ) {
@@ -295,12 +299,14 @@ void npAnimation::Swap( uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2 ) {
     Set( x1, y1, color2 );
 }
 
+/*
 void npAnimation::CpyRow( uint16_t src, uint16_t dest ) {
     for ( int i = 0; i <  pDisplay->numNeopixels; i++ ) {
         rgbw_t clr = pDisplay->GetColorAtCoord( i, src );
         Set( i, dest, clr );
     }
 }
+*/ 
 
 void npAnimation::ShiftLeft() {
     for ( int i = pDisplay->colLeft; i < pDisplay->colRight; i++ ) {
@@ -467,8 +473,8 @@ void npAnimation::Blit( const vector<pixel>& px ) {
     if ( !px.empty() ) {
         vector<pixel>::const_iterator it;
 
-        for ( it = px.begin(); it < px.end(); it++ ) { 
-            npAnimation::Set( (*it).coord.x, (*it).coord.y, (*it).color, (*it).brt );
+        for ( it = px.begin(); it != px.end(); it++ ) { 
+            npAnimation::Set( it->coord.x, it->coord.y, it->color, it->brt );
 
         }
     }

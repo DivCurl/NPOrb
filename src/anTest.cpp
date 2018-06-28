@@ -13,47 +13,16 @@ anTest::~anTest() { }
 int anTest::Draw() {
     // Main animation loop   
     
-    counter ctrTest( 1000, ON );
-    
-/* TEXT GENERATION
- * 
-    X
-  X   X
-X       X
-X       X
-X       X
-XXXXXXXXX
-X       X	
-X       X
-X       X
-X       X
-
-*/
-    
+    counter ctrTest( 1000, ON );    
+   
     while ( ( framesDrawn < frames ) || modeFlags.test( MODE_REPEAT ) ) {     
+        /*
         // For testing T4 interrupt timings
         if ( ctrTest.Done() ) {
             ctrTest.Reset();
             PORTBbits.RB7 ^= 1;
-        }        
-        
-        /*
-        for ( int i = 0; i < 4; i++ ) {
-            int ii = i * MAX_THETA_DIV / 4; 
-            
-            for ( int j = 0; j < FR_LED_COUNT; j++ ) {
-                if ( j % 2 == 0 ) {
-                    Set ( ii, j, rgbwGetByAngle( j * 5 ) );
-                }
-            }
         }
-        
-        for ( int j = 0; j < FR_LED_COUNT; j++ ) {
-            if ( j % 2 == 0 ) {
-                Set ( 0, j, rgbwGetByAngle( j * 5 ) );
-            }
-        }
-        */
+        */         
 
     } // end main loop         
     
