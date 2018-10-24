@@ -156,6 +156,7 @@ enum {
     ID_AN_TEST = -1, 
     ID_AN_NULL,     
     ID_AN_TEXT_TM,
+    ID_AN_TEXT_MUDDER,
     ID_AN_COMETS,
     ID_AN_RAIN,
     ID_AN_RANDOM_FILL,

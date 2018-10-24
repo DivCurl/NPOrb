@@ -26,7 +26,6 @@ using namespace std;
 #define REFRESH_HZ          ( MOTOR_HZ * MAX_THETA_DIV )
 
 
-
 int T23Period = 48425; // hand-tuned for proper timing of refresh interrupt
 int T4Period = 40000;  // 1 ms per tick @ 40Mhz FPB
 volatile long msTicks;
@@ -73,9 +72,14 @@ int main() {
 	DmaChnSetTxfer( DMA_CHANNEL1, txSpiDmaBuff, (void*)&SPI1BUF, sizeof( txSpiDmaBuff ), 4 , 4 );        
     INTEnableSystemMultiVectoredInt();
     
+    // dwell for startup
+    counter startup( 5000, ON );
+    while ( !startup.Done() );
+    
     	    
     npAnimation* pAnim;  
-    int currAnim = ID_AN_TEXT_TM;        
+    int currAnim = ID_AN_TEXT_MUDDER;  
+    // int currAnim = ID_AN_TEXT_TM;
                     
     while ( 1 ) { 
         if ( currAnim == ID_AN_NULL ) {
@@ -100,6 +104,7 @@ int main() {
                 delete pAnim;
                 break;     
                 
+            /*
             case ( ID_AN_TEXT_TM ):
                 pAnim = new anTextTM( &display, MODE_NULL, 750 );
                 
@@ -112,6 +117,20 @@ int main() {
                 
                 delete pAnim;
                 break;  
+             */
+                
+            case ( ID_AN_TEXT_MUDDER ):
+                pAnim = new anToughMudder( &display, MODE_REPEAT );
+                
+                if ( pAnim->Draw() == MODE_PREV ) {
+                    currAnim--;
+                } 
+                else  {
+                    currAnim++;
+                }
+                
+                delete pAnim;
+                break;          
                 
             case ( ID_AN_RAIN ):
                 pAnim = new anRain( &display, MODE_NULL, 800 );

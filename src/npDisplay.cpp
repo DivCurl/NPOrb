@@ -194,7 +194,7 @@ void npDisplay::Refresh( int mode ) {
     
     // ** Refresh Display **
     // This is too slow; I've experimented with and successfully achieved good control and timing
-    // with SPI transfer using DMA; leaving this here for reference.
+    // with SPI transfer using DMA, but leaving this here for reference for future self.
     // *********************
     
     // Start Frame Packet

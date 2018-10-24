@@ -9,7 +9,6 @@ anTextTM::anTextTM( npDisplay* pDisplay, mode_t mode, int frames, opt_t opts, sc
 anTextTM::~anTextTM() { }
 
 int anTextTM::Draw() {
-
     counter ctrShift( 50, ON );
     counter ctrColor( 100, ON );
     sprite TM_Text, TM_Logo, automationText;
@@ -24,6 +23,7 @@ int anTextTM::Draw() {
     uint32_t bmap[ 20 ];
     int xOffset;
    
+    
     for ( int i = 0; i < strlen( strTM ); i++ ) {
         
         // Get the current character in the pointer and move it into chr array ( 5 bytes )
@@ -42,6 +42,7 @@ int anTextTM::Draw() {
         
     xOffset += 4;
     
+    
     // Get the current character in the pointer and move it into chr array ( 5 bytes )
     GetBitmap( 0, bmap, 16 );
     // build the current character on the display
@@ -54,6 +55,7 @@ int anTextTM::Draw() {
     }
     
     xOffset = 0;
+    
     
     for ( int i = 0; i < strlen( strAutomation ); i++ ) {
         
@@ -70,6 +72,7 @@ int anTextTM::Draw() {
         
         xOffset += 6;
     } 
+    
         
     Blit( TM_Text.GetPixelVec() );
     Blit( TM_Logo.GetPixelVec() );     
